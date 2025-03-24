@@ -8,49 +8,88 @@
     android:fitsSystemWindows="true"
     tools:context=".view.MainActivity">
 
-    <EditText
-        android:id="@+id/edt_email"
+    <ImageView
+        android:id="@+id/imgInstagram"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
-        android:ems="10"
-        android:inputType="text"
-        android:hint="Enter Email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_height="80dp"
+        android:layout_marginTop="180dp"
+        android:src="@drawable/ic_instagram"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/edt_password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Enter Password"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/edt_email"
-        app:layout_constraintStart_toStartOf="@+id/edt_email"
-        app:layout_constraintTop_toBottomOf="@+id/edt_email" />
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:orientation="vertical"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      android:paddingHorizontal="50dp"
+      android:id="@+id/ll_edt"
+      app:layout_constraintTop_toBottomOf="@id/imgInstagram">
+      <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/layout_email"
+          style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="@string/enter_email"
+          android:inputType="text"
+          android:layout_marginBottom="20dp">
+          <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/edt_email"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+      </com.google.android.material.textfield.TextInputLayout>
+      <com.google.android.material.textfield.TextInputLayout
+          android:id="@+id/layout_password"
+          style="@style/Widget.Material3.TextInputLayout.FilledBox.Dense"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:hint="@string/enter_password"
+          android:inputType="textPassword">
+          <com.google.android.material.textfield.TextInputEditText
+              android:id="@+id/edt_password"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content" />
+      </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/btn_sign_in"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
-        android:onClick="signInClick"
-        android:text="Sign In"
-        app:layout_constraintEnd_toStartOf="@+id/btn_sign_up"
-        app:layout_constraintStart_toStartOf="@+id/edt_password"
-        app:layout_constraintTop_toBottomOf="@+id/edt_password" />
+      <com.google.android.material.button.MaterialButton
+          android:id="@+id/btn_sign_in"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          app:cornerRadius="0dp"
+          android:layout_marginTop="20dp"
+          android:onClick="signInClick"
+          android:text="@string/btn_log_in"
+          android:backgroundTint="#0096FF"
+          app:layout_constraintEnd_toStartOf="@+id/btn_sign_up"
+          app:layout_constraintStart_toStartOf="@+id/ll_edt"
+          app:layout_constraintTop_toBottomOf="@+id/ll_edt" />
+  </LinearLayout>
 
-    <Button
-        android:id="@+id/btn_sign_up"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="144dp"
-        android:onClick="signUpClick"
-        android:text="Sign Up"
-        app:layout_constraintEnd_toEndOf="@+id/edt_password"
-        app:layout_constraintTop_toBottomOf="@+id/edt_password" />
+       android:id="@+id/ll_signUp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        <TextView
+            android:id="@+id/tv_signUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_signUp" />
+
+        <Button
+            android:id="@+id/btn_sign_up"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="signUpClick"
+            android:text="@string/btn_sign_up" />
+    </LinearLayout>
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
