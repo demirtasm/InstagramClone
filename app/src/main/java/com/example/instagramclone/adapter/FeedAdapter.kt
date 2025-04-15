@@ -1,14 +1,13 @@
 package com.example.instagramclone.adapter
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.instagramclone.databinding.RecyclerRowBinding
 import com.example.instagramclone.model.Post
 import com.squareup.picasso.Picasso
 
-class FeedRecyclerAdapter(val postList:ArrayList<Post>): RecyclerView.Adapter<FeedRecyclerAdapter.PostHolder>() {
+class FeedAdapter(val postList:ArrayList<Post>): RecyclerView.Adapter<FeedAdapter.PostHolder>() {
 
 
      class PostHolder(val binding: RecyclerRowBinding) : RecyclerView.ViewHolder(binding.root) {

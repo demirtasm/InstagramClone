@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/go_home"
+        android:icon="@drawable/ic_home"
+        android:enabled="true"
+        android:title=""></item>
+    <item
+        android:id="@+id/add_post"
+        android:icon="@drawable/ic_add_post"
+        android:enabled="true"
+        android:title=""></item>
+    <item
+        android:id="@+id/get_search"
+        android:icon="@drawable/ic_search"
+        android:enabled="true"
+        android:title=""></item>
+    <item
+        android:id="@+id/signout"
+        android:icon="@drawable/ic_user"
+        android:enabled="true"
+        android:title=""></item>
+
+</menu>
