@@ -6,6 +6,8 @@ import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.instagramclone.databinding.ActivityMainBinding
+import com.example.instagramclone.firestore.FireStoreClass
+import com.example.instagramclone.model.User
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
@@ -35,28 +37,18 @@ class MainActivity : AppCompatActivity() {
         val password = binding.edtPassword.text.toString()
         if (email.isNotEmpty() && password.isNotEmpty()) {
             auth.signInWithEmailAndPassword(email, password).addOnSuccessListener {
-                val intent = Intent(this@MainActivity, FeedActivity::class.java)
-                startActivity(intent)
-                finish()
+               FireStoreClass().signInUser(this)
             }
-                .addOnFailureListener {
-                    Toast.makeText(this@MainActivity, it.localizedMessage, Toast.LENGTH_LONG).show()
-                }
+
         }
     }
 
+    fun signInSuccess(user:User){
+        val intent = Intent(this@MainActivity, FeedActivity::class.java)
+        startActivity(intent)
+        finish()
+    }
     fun signUpClick(view: View) {
-        val email = binding.edtEmail.text.toString()
-        val password = binding.edtPassword.text.toString()
-        if (email.isNotEmpty() && password.isNotEmpty()) {
-            auth.createUserWithEmailAndPassword(email, password).addOnSuccessListener {
-                val intent = Intent(this@MainActivity, FeedActivity::class.java)
-                startActivity(intent)
-                finish()
-            }.addOnFailureListener {
-                Toast.makeText(this@MainActivity, it.localizedMessage, Toast.LENGTH_LONG).show()
-            }
-        }
-
+        startActivity(Intent(this, SignUpActivity::class.java))
     }
 }
